@@ -7517,9 +7517,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="%5B%E5%95%8F%E9%A1%8C1%5D">[問題1]<a class="anchor-link" href="#%5B%E5%95%8F%E9%A1%8C1%5D">¶</a></h1><ul>
-<li>業務や身の回りの適当な問題を線形計画問題や整数計画問題(一部の変数のみに整数条件がつく問題でもよい), 2次計画問題やネットワーク最適化問題に定式化してみよ．</li>
-<li>もし，可能であれば，解いてみよ</li>
+<h1 id="%5B%E5%95%8F%E9%A1%8C1%5D%E4%BA%8C%E6%AC%A1%E8%A8%88%E7%94%BB%E5%95%8F%E9%A1%8C%EF%BC%88%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%E6%9C%80%E9%81%A9%E5%8C%96%EF%BC%89">[問題1]二次計画問題（ポートフォリオ最適化）<a class="anchor-link" href="#%5B%E5%95%8F%E9%A1%8C1%5D%E4%BA%8C%E6%AC%A1%E8%A8%88%E7%94%BB%E5%95%8F%E9%A1%8C%EF%BC%88%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%E6%9C%80%E9%81%A9%E5%8C%96%EF%BC%89">¶</a></h1><h2 id="1.-%E7%9B%AE%E7%9A%84">1. 目的<a class="anchor-link" href="#1.-%E7%9B%AE%E7%9A%84">¶</a></h2><ul>
+<li>３万円を日経225、S&amp;P500、およびビットコイン（BTC）に投資する際の最適なポートフォリオを計算する。</li>
 </ul>
 </div>
 </div>
@@ -7531,8 +7530,9 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="%E3%83%87%E3%83%BC%E3%82%BF%E5%8F%8E%E9%9B%86">データ収集<a class="anchor-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E5%8F%8E%E9%9B%86">¶</a></h2><ul>
-<li>日経225、S&amp;P500、BTCに関する過去５年分の終値データ（1,223件）をYahoo! Financeから取得し、ドル/円の為替レートを用いて日本円に換算。</li>
+<h2 id="2.-%E8%A8%88%E7%AE%97%E6%89%8B%E9%A0%86">2. 計算手順<a class="anchor-link" href="#2.-%E8%A8%88%E7%AE%97%E6%89%8B%E9%A0%86">¶</a></h2><h3 id="2.1-%E3%83%87%E3%83%BC%E3%82%BF%E5%8F%8E%E9%9B%86">2.1 データ収集<a class="anchor-link" href="#2.1-%E3%83%87%E3%83%BC%E3%82%BF%E5%8F%8E%E9%9B%86">¶</a></h3><ul>
+<li>日経225、S&amp;P500、BTCに関する過去５年分の終値データ（1,223件、2025年2月4日時点）をYahoo! Financeから取得する。</li>
+<li>S&amp;P500 および BTC の価格はドル建てで取得されるため、ドル/円の為替レートを用いて日本円に換算する。</li>
 </ul>
 </div>
 </div>
@@ -7542,7 +7542,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
@@ -7597,8 +7597,8 @@ a.anchor-link {
 2025-01-29  39414.781250  939469.068054  1.613197e+07
 2025-01-30  39513.968750  942063.425661  1.625178e+07
 2025-01-31  39572.488281  930827.519041  1.578031e+07
-2025-02-03  38520.089844  923745.226934  1.578031e+07
-2025-02-04  38730.500000  929392.119758  1.530555e+07
+2025-02-03  38520.089844  931334.391115  1.590995e+07
+2025-02-04  38798.371094  930572.995863  1.541444e+07
 
 古いデータの上位:                    ^N225      ^GSPC/JPY       BTC/JPY
 2020-02-04  23084.589844  358157.853016  9.971627e+05
@@ -7620,7 +7620,24 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="%E3%83%AA%E3%82%BF%E3%83%BC%E3%83%B3%E3%81%A8%E3%83%AA%E3%82%B9%E3%82%AF%E3%81%AE%E8%A9%95%E4%BE%A1">リターンとリスクの評価<a class="anchor-link" href="#%E3%83%AA%E3%82%BF%E3%83%BC%E3%83%B3%E3%81%A8%E3%83%AA%E3%82%B9%E3%82%AF%E3%81%AE%E8%A9%95%E4%BE%A1">¶</a></h2>
+<h3 id="2.2-%E3%83%AA%E3%82%BF%E3%83%BC%E3%83%B3%E3%81%A8%E3%83%AA%E3%82%B9%E3%82%AF%E3%81%AE%E8%A9%95%E4%BE%A1">2.2 リターンとリスクの評価<a class="anchor-link" href="#2.2-%E3%83%AA%E3%82%BF%E3%83%BC%E3%83%B3%E3%81%A8%E3%83%AA%E3%82%B9%E3%82%AF%E3%81%AE%E8%A9%95%E4%BE%A1">¶</a></h3><ol>
+<li><strong>リターン</strong></li>
+</ol>
+<ul>
+<li>各資産の前日比（変化率）を計算して求める。</li>
+</ul>
+<ol start="2">
+<li><strong>リスク（標準偏差）</strong></li>
+</ol>
+<ul>
+<li>リターンの変動性を示し、リスクの指標となる。標準偏差が大きいほど、価格変動が激しくリスクが高い。</li>
+</ul>
+<ol start="3">
+<li><strong>共分散行列</strong></li>
+</ol>
+<ul>
+<li>各資産の相関を考慮し、共分散行列を計算する。リスクの低い資産を組み合わせ、ポートフォリオ全体のリスクを低減する。</li>
+</ul>
 </div>
 </div>
 </div>
@@ -7629,7 +7646,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 日次リターンを計算</span>
@@ -7662,15 +7679,15 @@ a.anchor-link {
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>日次リターンの平均:
- ^N225        0.000517
-^GSPC/JPY    0.000889
-BTC/JPY      0.003137
+ ^N225        0.000519
+^GSPC/JPY    0.000890
+BTC/JPY      0.003143
 dtype: float64
 
 各資産の標準偏差:
- ^N225        0.013711
-^GSPC/JPY    0.014688
-BTC/JPY      0.041959
+ ^N225        0.013712
+^GSPC/JPY    0.014685
+BTC/JPY      0.041960
 dtype: float64
 
 共分散行列:
@@ -7691,7 +7708,16 @@ BTC/JPY    0.000069   0.000246  0.001761
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="%E3%82%B7%E3%83%A3%E3%83%BC%E3%83%97%E3%83%AC%E3%82%B7%E3%82%AA%E3%81%AE%E6%9C%80%E5%A4%A7%E5%8C%96">シャープレシオの最大化<a class="anchor-link" href="#%E3%82%B7%E3%83%A3%E3%83%BC%E3%83%97%E3%83%AC%E3%82%B7%E3%82%AA%E3%81%AE%E6%9C%80%E5%A4%A7%E5%8C%96">¶</a></h2>
+<h3 id="2.3-%E3%82%B7%E3%83%A3%E3%83%BC%E3%83%97%E3%83%AC%E3%82%B7%E3%82%AA%E3%81%AE%E6%9C%80%E5%A4%A7%E5%8C%96">2.3 シャープレシオの最大化<a class="anchor-link" href="#2.3-%E3%82%B7%E3%83%A3%E3%83%BC%E3%83%97%E3%83%AC%E3%82%B7%E3%82%AA%E3%81%AE%E6%9C%80%E5%A4%A7%E5%8C%96">¶</a></h3><ul>
+<li><p>ポートフォリオのリターンとリスクのバランスを最適化し、シャープレシオを最大化するために最適な投資比率（ウェイト）を決定する。</p>
+</li>
+<li><p><strong>制約条件</strong></p>
+<ul>
+<li>ウェイトの合計は１</li>
+<li>各資産のウェイトは０以上</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -7700,7 +7726,7 @@ BTC/JPY    0.000069   0.000246  0.001761
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># シャープレシオを最大化する最適化関数</span>
@@ -7746,15 +7772,15 @@ BTC/JPY    0.000069   0.000246  0.001761
 <pre>最適なポートフォリオ:
 資産: ^N225
 - 最適ウェイト: 0.31
-- 投資額: 9321.07
+- 投資額: 9390.18
 
 資産: ^GSPC/JPY
 - 最適ウェイト: 0.4
-- 投資額: 12147.43
+- 投資額: 12094.72
 
 資産: BTC/JPY
 - 最適ウェイト: 0.28
-- 投資額: 8531.5
+- 投資額: 8515.1
 
 </pre>
 </div>
